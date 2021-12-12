@@ -11,20 +11,20 @@ fn main() {
             if input[i] > input[j] {
                 for _ in input[i]..input[j] {
                     range += 1;
-                    costs += range;
+                    costs += 1;
 
                     println!("{}", costs);
                 }
-                total_cost += costs;
+                total_cost += costs * (costs + 1) / 2;
 
             } else if input[i] < input[j] {
                 for _ in input[j]..input[i] {
                     range += 1;
-                    costs += range;
+                    costs += 1;
 
                     println!("{}", costs);
                 }
-                total_cost += costs;
+                total_cost += costs * (costs + 1) / 2;
             }
             //positions.push(total_cost);
             //fuel_costs.push(costs);
@@ -33,7 +33,7 @@ fn main() {
         fuel_costs.push(total_cost);
         total_cost = fuel_costs.iter().sum::<i64>();
 
-        //println!("{}", total_cost);
+        println!("{}", total_cost);
 
         //println!("{:?}", fuel_costs);
         //println!("{:?}", fuel_costs.iter().sum::<i64>());
@@ -43,6 +43,6 @@ fn main() {
         total_cost = 0;
     }
 
-    println!("{:?}", fuel_costs.iter().min());
+    //println!("{:?}", fuel_costs.iter().min());
     println!("{:?}", total_cost);
 }
